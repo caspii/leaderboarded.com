@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to create a leaderboard in Google Sheets with our step-by-step guide. Track scores, rank participants, and visualize performance data easily.">
+    <title>How to Create a Leaderboard in Google Sheets - Leaderboarded</title>
+    <style>
+        :root {
+            --primary: #4A6FFF;
+            --primary-dark: #3A5FEF;
+            --secondary: #FF6B4A;
+            --dark: #2A3142;
+            --light: #F9FAFC;
+            --gray: #DEE2E6;
+            --gray-dark: #6C757D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .article-hero {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #F3F8FF 0%, #E6F0FF 100%);
+        }
+        
+        .article-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .article-meta {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+        
+        .article-content h2 {
+            font-size: 2rem;
+            margin: 2.5rem 0 1.5rem;
+            color: var(--dark);
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--dark);
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+            line-height: 1.8;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            color: var(--gray-dark);
+        }
+        
+        .article-content li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+        
+        .article-content code {
+            background-color: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .article-content pre {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .tip-box {
+            background-color: #E8F2FF;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+        
+        .tip-box h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .warning-box {
+            background-color: #FFF5F5;
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-section {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-keepthescore {
+            background-color: var(--secondary);
+            color: white;
+            border: 2px solid var(--secondary);
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-keepthescore:hover {
+            filter: brightness(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 74, 0.4);
+        }
+        
+        .arrow-icon {
+            transition: transform 0.3s;
+        }
+        
+        .btn-keepthescore:hover .arrow-icon {
+            transform: translateX(5px);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .legal-links a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .article-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .legal-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .legal-links a {
+                margin-left: 0;
+            }
+        }
+    </style>
+    
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="ATRSWXIE" defer></script>
+    <!-- / Fathom -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">Leader<span>boarded</span></a>
+                <ul class="nav-links">
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#industries">Industries</a></li>
+                    <li><a href="/#stats">Stats</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="article-hero">
+        <div class="container">
+            <h1>How to Create a Leaderboard in Google Sheets</h1>
+            <div class="article-meta">
+                Last updated: January 2025 | 10 min read
+            </div>
+        </div>
+    </section>
+
+    <article class="article-content">
+        <div class="container">
+            <p>Creating a leaderboard in Google Sheets is an excellent way to track performance, motivate team members, and visualize competitive data. Whether you're managing a sales team, running a classroom competition, or tracking sports scores, this comprehensive guide will show you how to build an effective leaderboard from scratch.</p>
+
+            <h2>Why Use Google Sheets for Leaderboards?</h2>
+            <p>Google Sheets offers several advantages for creating leaderboards:</p>
+            <ul>
+                <li><strong>Real-time collaboration:</strong> Multiple users can update scores simultaneously</li>
+                <li><strong>Automatic calculations:</strong> Built-in formulas handle ranking and scoring</li>
+                <li><strong>Free to use:</strong> No additional software costs</li>
+                <li><strong>Cloud-based:</strong> Access your leaderboard from anywhere</li>
+                <li><strong>Easy sharing:</strong> Control who can view or edit your leaderboard</li>
+            </ul>
+
+            <h2>Step-by-Step Guide to Creating a Basic Leaderboard</h2>
+
+            <h3>Step 1: Set Up Your Spreadsheet</h3>
+            <ol>
+                <li>Open Google Sheets and create a new spreadsheet</li>
+                <li>Name your spreadsheet (e.g., "Team Sales Leaderboard Q1 2025")</li>
+                <li>Create column headers in Row 1:
+                    <ul>
+                        <li>Column A: "Rank"</li>
+                        <li>Column B: "Name"</li>
+                        <li>Column C: "Score" or "Points"</li>
+                        <li>Column D: "Previous Rank" (optional)</li>
+                        <li>Column E: "Change" (optional)</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Step 2: Enter Your Data</h3>
+            <ol>
+                <li>Starting from Row 2, enter participant names in Column B</li>
+                <li>Enter their corresponding scores in Column C</li>
+                <li>Leave Column A empty for now (we'll add automatic ranking)</li>
+            </ol>
+
+            <h3>Step 3: Add Automatic Ranking</h3>
+            <p>To automatically rank participants based on their scores, use the RANK function:</p>
+            <pre><code>=RANK(C2,$C$2:$C$11,0)</code></pre>
+            <p>This formula ranks the score in cell C2 against all scores in the range C2:C11, with 0 indicating descending order (highest score = rank 1).</p>
+
+            <div class="tip-box">
+                <h4>💡 Pro Tip</h4>
+                <p>Use absolute references ($C$2:$C$11) to ensure the range doesn't change when copying the formula down.</p>
+            </div>
+
+            <h3>Step 4: Sort Your Leaderboard</h3>
+            <ol>
+                <li>Select your data range (including headers)</li>
+                <li>Go to Data → Sort range</li>
+                <li>Check "Data has header row"</li>
+                <li>Sort by "Rank" column, A → Z</li>
+            </ol>
+
+            <h2>Advanced Features</h2>
+
+            <h3>Conditional Formatting for Visual Appeal</h3>
+            <p>Make your leaderboard more visually engaging with conditional formatting:</p>
+            <ol>
+                <li>Select the score column</li>
+                <li>Format → Conditional formatting</li>
+                <li>Choose "Color scale" and select a gradient (e.g., red to green)</li>
+                <li>Higher scores will appear in green, lower scores in red</li>
+            </ol>
+
+            <h3>Adding Movement Indicators</h3>
+            <p>Show whether participants have moved up or down in rankings:</p>
+            <pre><code>=IF(D2<A2,"↑",IF(D2>A2,"↓","–"))</code></pre>
+            <p>This formula compares previous rank (D2) with current rank (A2) and displays appropriate arrows.</p>
+
+            <h3>Creating a Dynamic Top 10 Display</h3>
+            <p>Use the QUERY function to create a separate top 10 display:</p>
+            <pre><code>=QUERY(A1:C,"SELECT * ORDER BY C DESC LIMIT 10",1)</code></pre>
+
+            <h2>Best Practices for Google Sheets Leaderboards</h2>
+
+            <h3>Data Validation</h3>
+            <ul>
+                <li>Use data validation to prevent incorrect entries</li>
+                <li>Set minimum and maximum values for scores</li>
+                <li>Create dropdown lists for consistent name entry</li>
+            </ul>
+
+            <h3>Protection and Permissions</h3>
+            <ul>
+                <li>Protect formulas from accidental deletion</li>
+                <li>Set appropriate sharing permissions</li>
+                <li>Consider creating a view-only version for public display</li>
+            </ul>
+
+            <h3>Regular Updates</h3>
+            <ul>
+                <li>Establish a regular update schedule</li>
+                <li>Use Google Forms for automated data collection</li>
+                <li>Set up email notifications for changes</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>⚠️ Common Pitfalls to Avoid</h4>
+                <ul>
+                    <li>Not backing up your data regularly</li>
+                    <li>Forgetting to update formulas when adding new participants</li>
+                    <li>Using inconsistent data formats</li>
+                    <li>Not protecting important cells from editing</li>
+                </ul>
+            </div>
+
+            <h2>Limitations of Google Sheets Leaderboards</h2>
+            <p>While Google Sheets is powerful, it has some limitations for leaderboard creation:</p>
+            <ul>
+                <li><strong>Manual updates:</strong> Requires manual data entry and maintenance</li>
+                <li><strong>Limited visualization:</strong> Basic charts and formatting options</li>
+                <li><strong>Performance issues:</strong> Can slow down with large datasets</li>
+                <li><strong>No real-time animations:</strong> Static display without dynamic updates</li>
+                <li><strong>Complex formulas:</strong> Advanced features require spreadsheet expertise</li>
+            </ul>
+
+            <div class="cta-section">
+                <h3>Want a More Powerful Leaderboard Solution?</h3>
+                <p>While Google Sheets is great for basic leaderboards, keepTheScore.com offers advanced features like real-time updates, beautiful visualizations, and zero technical setup required.</p>
+                <a href="https://keepthescore.com" class="btn btn-keepthescore">
+                    Try keepTheScore.com Free
+                    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <h2>Conclusion</h2>
+            <p>Creating a leaderboard in Google Sheets is a straightforward process that can be accomplished with basic spreadsheet knowledge. By following this guide, you can build a functional leaderboard that tracks performance and motivates participants. However, if you need more advanced features, real-time updates, or professional visualizations, consider using a dedicated leaderboard platform like keepTheScore.com.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            
+            <h3>Can I embed a Google Sheets leaderboard on my website?</h3>
+            <p>Yes, you can embed a Google Sheets leaderboard using the publish to web feature. However, it will appear as a basic spreadsheet without interactive features.</p>
+
+            <h3>How do I automatically update scores from multiple sources?</h3>
+            <p>You can use Google Forms for data collection, IMPORTRANGE function to pull data from other sheets, or Google Apps Script for more complex automation.</p>
+
+            <h3>What's the maximum number of participants I can track?</h3>
+            <p>Google Sheets can handle up to 10 million cells, but performance may degrade with very large datasets. For optimal performance, keep your leaderboard under 1,000 participants.</p>
+
+            <h3>Can I create different views for different user groups?</h3>
+            <p>Yes, you can create multiple sheets within the same spreadsheet or use filter views to show different data subsets to different audiences.</p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Leaderboarded</h3>
+                    <p>Visualize the score. The smart tool to motivate your team, fast!</p>
+                    <a href="https://keepthescore.com" class="btn btn-primary">Try keepTheScore.com</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#industries">Industries</a></li>
+                        <li><a href="/#stats">Stats</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Need Help?</h4>
+                    <ul>
+                        <li><a href="mailto:helpdesk@leaderboarded.com">helpdesk@leaderboarded.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © Leaderboarded Ltd. 2025. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
