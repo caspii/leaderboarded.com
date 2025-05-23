@@ -976,3 +976,160 @@ footer {
 .pb-3 { padding-bottom: 1.5rem; }
 .pb-4 { padding-bottom: 2rem; }
 .pb-5 { padding-bottom: 3rem; }
+
+/* ==========================================================================
+   Real Estate Page Specific Styles
+   ========================================================================== */
+
+/* Real Estate Hero */
+.re-hero {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.re-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.re-hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.re-hero .btn-keepthescore {
+    margin-top: 1rem;
+}
+
+/* Stats Highlight Box */
+.stats-highlight {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.stats-highlight h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+}
+
+.highlight-stat {
+    text-align: center;
+}
+
+.highlight-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.highlight-label {
+    color: var(--gray-dark);
+    font-size: 0.9rem;
+}
+
+/* Metric Cards */
+.metric-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--primary);
+}
+
+.metric-card h4 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.metric-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.metric-card li {
+    padding: 0.5rem 0;
+    color: var(--gray-dark);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.metric-card li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: bold;
+}
+
+/* Case Study Simple */
+.case-study-simple {
+    background-color: var(--light);
+    padding: 3rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.case-study-simple h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.result-item {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.result-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.result-label {
+    color: var(--gray-dark);
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments for real estate page */
+@media (max-width: 768px) {
+    .re-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .highlight-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
