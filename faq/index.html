@@ -7,6 +7,53 @@
     <meta name="description" content="Frequently asked questions about Leaderboarded and keepTheScore.com. Learn how to create, customize, and manage online leaderboards effectively.">
     <title>Frequently Asked Questions - Leaderboarded</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Dropdown menu styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.7em;
+            margin-left: 0.3rem;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            min-width: 200px;
+            padding: 0.5rem 0;
+            z-index: 1000;
+            list-style: none;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            list-style: none;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+    </style>
     
     <!-- Fathom - beautiful, simple website analytics -->
     <script src="https://cdn.usefathom.com/script.js" data-site="ATRSWXIE" defer></script>
@@ -18,10 +65,18 @@
             <nav class="navbar">
                 <a href="/" class="logo">Leader<span>boarded</span></a>
                 <ul class="nav-links">
-                    <li><a href="/#features">Features</a></li>
-                    <li><a href="/#industries">Industries</a></li>
-                    <li><a href="/#stats">Stats</a></li>
-                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/templates.html">Templates</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Solutions</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/sales-leaderboard.html">Sales Teams</a></li>
+                            <li><a href="/financial-services-leaderboard.html">Financial Services</a></li>
+                            <li><a href="/blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification.html">Real Estate</a></li>
+                            <li><a href="/gamification-leaderboard.html">Gamification Guide</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/faq/">FAQ</a></li>
                 </ul>
             </nav>
         </div>
@@ -282,9 +337,9 @@
                     <div class="related-articles">
                         <h4>Popular Guides:</h4>
                         <ul>
-                            <li><a href="/faq/how-to-create-a-leaderboard-in-google-sheets">How to Create a Leaderboard in Google Sheets</a></li>
-                            <li><a href="/templates">Leaderboard Templates</a></li>
-                            <li><a href="/financial-services-leaderboard">Financial Services Leaderboard Guide</a></li>
+                            <li><a href="/faq/how-to-create-a-leaderboard-in-google-sheets.html">How to Create a Leaderboard in Google Sheets</a></li>
+                            <li><a href="/templates.html">Leaderboard Templates</a></li>
+                            <li><a href="/financial-services-leaderboard.html">Financial Services Leaderboard Guide</a></li>
                         </ul>
                     </div>
                 </div>
@@ -328,10 +383,25 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="/#features">Features</a></li>
-                        <li><a href="/#industries">Industries</a></li>
-                        <li><a href="/#stats">Stats</a></li>
-                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/templates.html">Templates</a></li>
+                        <li><a href="/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="/sales-leaderboard.html">Sales Teams</a></li>
+                        <li><a href="/financial-services-leaderboard.html">Financial Services</a></li>
+                        <li><a href="/gamification-leaderboard.html">Gamification</a></li>
+                        <li><a href="/blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification.html">Real Estate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/faq/how-to-create-a-leaderboard-in-google-sheets.html">Google Sheets Guide</a></li>
+                        <li><a href="/faq/how-to-add-leaderboard-player-image-url.html">Add Player Images</a></li>
                     </ul>
                 </div>
             </div>

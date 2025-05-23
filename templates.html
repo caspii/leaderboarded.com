@@ -451,6 +451,52 @@
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
         }
         
+        /* Dropdown menu styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.7em;
+            margin-left: 0.3rem;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            min-width: 200px;
+            padding: 0.5rem 0;
+            z-index: 1000;
+            list-style: none;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            list-style: none;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+        
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -499,10 +545,18 @@
             <nav class="navbar">
                 <a href="/" class="logo">Leader<span>boarded</span></a>
                 <ul class="nav-links">
-                    <li><a href="/#features">Features</a></li>
-                    <li><a href="/#industries">Industries</a></li>
-                    <li><a href="/#stats">Stats</a></li>
-                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/templates.html">Templates</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Solutions</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/sales-leaderboard.html">Sales Teams</a></li>
+                            <li><a href="/financial-services-leaderboard.html">Financial Services</a></li>
+                            <li><a href="/blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification.html">Real Estate</a></li>
+                            <li><a href="/gamification-leaderboard.html">Gamification Guide</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/faq/">FAQ</a></li>
                 </ul>
             </nav>
         </div>
@@ -562,6 +616,7 @@
                         <h3 class="template-title">Real Estate Agent Rankings</h3>
                         <p class="template-category">Sales & Business</p>
                         <p class="template-description">Specialized for real estate teams. Track listings, closings, and commission volume with beautiful visualizations.</p>
+                        <p style="margin-top: 0.5rem;"><a href="/blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification" style="color: var(--primary); font-size: 0.9rem; text-decoration: none;">Read our Real Estate Guide →</a></p>
                         <ul class="template-features">
                             <li>Listing tracking</li>
                             <li>Commission calculations</li>
@@ -787,6 +842,9 @@
         <div class="container">
             <h2>Ready to Launch Your Leaderboard?</h2>
             <p>Choose any template and customize it to match your needs. All templates include real-time updates, mobile support, and unlimited participants.</p>
+            <div style="margin-top: 2rem; font-size: 1.1rem;">
+                <p style="color: rgba(255, 255, 255, 0.9);">Learn more: <a href="/sales-leaderboard" style="color: white; text-decoration: underline;">Sales Strategies</a> | <a href="/gamification-leaderboard" style="color: white; text-decoration: underline;">Gamification Guide</a> | <a href="/financial-services-leaderboard" style="color: white; text-decoration: underline;">Financial Services</a></p>
+            </div>
             <a href="https://keepthescore.com" class="btn btn-keepthescore">
                 Start with keepTheScore.com
                 <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -810,8 +868,18 @@
                     <ul>
                         <li><a href="/#features">Features</a></li>
                         <li><a href="/#industries">Industries</a></li>
+                        <li><a href="/templates">Templates</a></li>
                         <li><a href="/#stats">Stats</a></li>
                         <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Use Cases</h4>
+                    <ul>
+                        <li><a href="/sales-leaderboard.html">Sales Teams</a></li>
+                        <li><a href="/financial-services-leaderboard.html">Financial Services</a></li>
+                        <li><a href="/gamification-leaderboard.html">Gamification</a></li>
+                        <li><a href="/blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification.html">Real Estate</a></li>
                     </ul>
                 </div>
             </div>

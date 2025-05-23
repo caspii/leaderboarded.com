@@ -8,6 +8,51 @@
     <title>Leaderboarded - The Online Leaderboard Maker</title>
     <link rel="stylesheet" href="/styles.css">
     <style>
+        /* Dropdown menu styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.7em;
+            margin-left: 0.3rem;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            min-width: 200px;
+            padding: 0.5rem 0;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            list-style: none;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+        
         /* Home page specific styles */
         .faq {
             padding: 4rem 0;
@@ -46,10 +91,18 @@
             <nav class="navbar">
                 <a href="#" class="logo">Leader<span>boarded</span></a>
                 <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#industries">Industries</a></li>
-                    <li><a href="#stats">Stats</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/templates.html">Templates</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Solutions</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/sales-leaderboard.html">Sales Teams</a></li>
+                            <li><a href="/financial-services-leaderboard.html">Financial Services</a></li>
+                            <li><a href="/blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification.html">Real Estate</a></li>
+                            <li><a href="/gamification-leaderboard.html">Gamification Guide</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/faq/">FAQ</a></li>
                 </ul>
             </nav>
         </div>
@@ -150,10 +203,40 @@
     <section class="home-industries" id="industries">
         <div class="container">
             <div class="section-title">
-                <h2>Use Cases</h2>
+                <h2>Solutions & Industries</h2>
                 <p>From classrooms to boardrooms, our leaderboards drive engagement everywhere</p>
             </div>
             <div class="home-industries-grid">
+                <div class="home-industry-card">
+                    <div class="home-industry-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3><a href="/sales-leaderboard.html" style="color: inherit; text-decoration: none;">Sales Teams</a></h3>
+                    <p style="margin-top: 0.5rem; color: var(--gray-dark); font-size: 0.9rem;">Boost sales performance with competitive leaderboards</p>
+                </div>
+                <div class="home-industry-card">
+                    <div class="home-industry-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3><a href="/financial-services-leaderboard.html" style="color: inherit; text-decoration: none;">Financial Services</a></h3>
+                    <p style="margin-top: 0.5rem; color: var(--gray-dark); font-size: 0.9rem;">Track KPIs and drive performance in finance teams</p>
+                </div>
+                <div class="home-industry-card">
+                    <div class="home-industry-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3><a href="/blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification.html" style="color: inherit; text-decoration: none;">Real Estate</a></h3>
+                    <p style="margin-top: 0.5rem; color: var(--gray-dark); font-size: 0.9rem;">Gamify agent performance and property sales</p>
+                </div>
                 <div class="home-industry-card">
                     <div class="home-industry-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -162,34 +245,13 @@
                             <path d="M12 8v8"></path>
                         </svg>
                     </div>
-                    <h3>Sports & Athletics</h3>
+                    <h3><a href="/gamification-leaderboard.html" style="color: inherit; text-decoration: none;">Gamification Guide</a></h3>
+                    <p style="margin-top: 0.5rem; color: var(--gray-dark); font-size: 0.9rem;">Learn best practices for effective gamification</p>
                 </div>
-                <div class="home-industry-card">
-                    <div class="home-industry-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                    </div>
-                    <h3>Education</h3>
-                </div>
-                <div class="home-industry-card">
-                    <div class="home-industry-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="1" x2="12" y2="23"></line>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                    </div>
-                    <h3>Sales & Business</h3>
-                </div>
-                <div class="home-industry-card">
-                    <div class="home-industry-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                        </svg>
-                    </div>
-                    <h3>Fundraising</h3>
-                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.1rem; color: var(--gray-dark); margin-bottom: 1.5rem;">Explore our comprehensive templates library for more industry-specific solutions</p>
+                <a href="/templates.html" class="btn btn-primary">View All Templates →</a>
             </div>
         </div>
     </section>
@@ -249,6 +311,9 @@
                     <h3>Who can view my leaderboard?</h3>
                     <p>You have complete control over who can view your leaderboards. You can make them public, restrict them to specific team members, or keep them private.</p>
                 </div>
+                <div class="faq-item" style="text-align: center; margin-top: 2rem;">
+                    <a href="/faq" style="color: var(--primary); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--primary);">View All FAQs →</a>
+                </div>
             </div>
         </div>
     </section>
@@ -266,8 +331,25 @@
                     <ul>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#industries">Industries</a></li>
+                        <li><a href="/templates">Templates</a></li>
                         <li><a href="#stats">Stats</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Use Cases</h4>
+                    <ul>
+                        <li><a href="/sales-leaderboard">Sales Teams</a></li>
+                        <li><a href="/financial-services-leaderboard">Financial Services</a></li>
+                        <li><a href="/gamification-leaderboard">Gamification</a></li>
+                        <li><a href="/blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification.html">Real Estate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/faq/how-to-create-a-leaderboard-in-google-sheets">Google Sheets Guide</a></li>
+                        <li><a href="/faq/how-to-add-leaderboard-player-image-url">Add Player Images</a></li>
                     </ul>
                 </div>
             </div>
