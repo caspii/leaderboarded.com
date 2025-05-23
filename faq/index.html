@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently asked questions about Leaderboarded and keepTheScore.com. Learn how to create, customize, and manage online leaderboards effectively.">
+    <title>Frequently Asked Questions - Leaderboarded</title>
+    <style>
+        :root {
+            --primary: #4A6FFF;
+            --primary-dark: #3A5FEF;
+            --secondary: #FF6B4A;
+            --dark: #2A3142;
+            --light: #F9FAFC;
+            --gray: #DEE2E6;
+            --gray-dark: #6C757D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .page-hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #F3F8FF 0%, #E6F0FF 100%);
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--gray-dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .faq-categories {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .category-card {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .category-card p {
+            color: var(--gray-dark);
+        }
+        
+        .faq-section {
+            padding: 4rem 0;
+        }
+        
+        .faq-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            background-color: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--light);
+        }
+        
+        .faq-question.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .faq-question.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 1.5rem 2rem;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: var(--gray-dark);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer ul {
+            padding-left: 1.5rem;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+        
+        .related-articles {
+            background-color: #F0F8FF;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .related-articles h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .related-articles ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .related-articles li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-section {
+            background-color: var(--dark);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-keepthescore {
+            background-color: var(--secondary);
+            color: white;
+            border: 2px solid var(--secondary);
+            font-size: 1.25rem;
+            padding: 1rem 2.5rem;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-keepthescore:hover {
+            filter: brightness(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 74, 0.4);
+        }
+        
+        .arrow-icon {
+            transition: transform 0.3s;
+        }
+        
+        .btn-keepthescore:hover .arrow-icon {
+            transform: translateX(5px);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .legal-links a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .faq-question {
+                padding: 1rem 1.5rem;
+                font-size: 1.1rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .legal-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .legal-links a {
+                margin-left: 0;
+            }
+        }
+    </style>
+    
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="ATRSWXIE" defer></script>
+    <!-- / Fathom -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">Leader<span>boarded</span></a>
+                <ul class="nav-links">
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#industries">Industries</a></li>
+                    <li><a href="/#stats">Stats</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Everything you need to know about creating and managing online leaderboards with keepTheScore.com</p>
+        </div>
+    </section>
+
+    <section class="faq-categories">
+        <div class="container">
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">🚀</div>
+                    <h3>Getting Started</h3>
+                    <p>Learn the basics of creating your first leaderboard</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">⚙️</div>
+                    <h3>Features & Settings</h3>
+                    <p>Explore advanced features and customization options</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💳</div>
+                    <h3>Pricing & Plans</h3>
+                    <p>Understand our pricing structure and plan options</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🔧</div>
+                    <h3>Technical Support</h3>
+                    <p>Get help with technical issues and integrations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2>Getting Started</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I create my first leaderboard?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Creating a leaderboard is simple and takes less than 2 minutes:</p>
+                    <ul>
+                        <li>Visit keepTheScore.com and click "Create Leaderboard"</li>
+                        <li>Choose your leaderboard type (Competition, Points Tracker, or Tournament)</li>
+                        <li>Add player names or enable self-registration</li>
+                        <li>Customize colors, logos, and settings</li>
+                        <li>Share the link with participants</li>
+                    </ul>
+                    <p>No account is required to start, though creating one lets you save and manage multiple leaderboards.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need technical skills to use keepTheScore?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No technical skills are required! keepTheScore is designed to be user-friendly for everyone. The interface is intuitive, and you can create professional-looking leaderboards without any coding or design experience.</p>
+                    <p>We also provide templates and guides to help you get started quickly.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can multiple people update the same leaderboard?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! You have several options for collaborative leaderboards:</p>
+                    <ul>
+                        <li><strong>Admin access:</strong> Share admin links with trusted team members</li>
+                        <li><strong>Player self-scoring:</strong> Allow participants to update their own scores</li>
+                        <li><strong>Moderator roles:</strong> Assign specific permissions to different users</li>
+                        <li><strong>Public submissions:</strong> Enable score submissions that you can approve</li>
+                    </ul>
+                    <p>All updates happen in real-time, so everyone sees changes immediately.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is keepTheScore free to use?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! keepTheScore offers a generous free plan that includes:</p>
+                    <ul>
+                        <li>Unlimited leaderboards</li>
+                        <li>Up to 50 players per leaderboard</li>
+                        <li>Real-time updates</li>
+                        <li>Basic customization options</li>
+                        <li>Mobile-friendly display</li>
+                    </ul>
+                    <p>Premium plans are available for advanced features like custom branding, more players, API access, and priority support.</p>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 4rem;">Features & Customization</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I customize the appearance of my leaderboard?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! keepTheScore offers extensive customization options:</p>
+                    <ul>
+                        <li><strong>Colors:</strong> Choose your brand colors or use pre-made themes</li>
+                        <li><strong>Logos:</strong> Upload your company or team logo</li>
+                        <li><strong>Backgrounds:</strong> Add custom background images or patterns</li>
+                        <li><strong>Fonts:</strong> Select from various font styles</li>
+                        <li><strong>Layout:</strong> Choose between different display formats</li>
+                        <li><strong>Player images:</strong> Add profile pictures for each participant</li>
+                    </ul>
+                    <div class="related-articles">
+                        <h4>Related Articles:</h4>
+                        <ul>
+                            <li><a href="/faq/how-to-add-leaderboard-player-image-url">How to Add Player Images to Your Leaderboard</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Does the leaderboard update in real-time?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! All leaderboards update automatically in real-time. When someone's score changes, everyone viewing the leaderboard sees the update immediately without needing to refresh the page.</p>
+                    <p>This real-time functionality works across all devices - desktop, tablet, and mobile - ensuring everyone stays synchronized.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I embed the leaderboard on my website?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can easily embed your leaderboard on any website using our embed code:</p>
+                    <ul>
+                        <li>Copy the provided iframe code from your leaderboard settings</li>
+                        <li>Paste it into your website's HTML</li>
+                        <li>Adjust the width and height as needed</li>
+                        <li>The embedded leaderboard updates in real-time just like the original</li>
+                    </ul>
+                    <p>The embed feature works with all website builders including WordPress, Wix, Squarespace, and custom HTML sites.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What types of competitions can I track?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>keepTheScore is versatile and can track virtually any type of competition:</p>
+                    <ul>
+                        <li><strong>Sports:</strong> Tournaments, league tables, fitness challenges</li>
+                        <li><strong>Sales:</strong> Performance tracking, targets, commissions</li>
+                        <li><strong>Education:</strong> Class points, reading challenges, behavior tracking</li>
+                        <li><strong>Gaming:</strong> Esports tournaments, high scores, achievements</li>
+                        <li><strong>Fundraising:</strong> Donation tracking, campaign progress</li>
+                        <li><strong>Custom:</strong> Any activity where you need to track and compare scores</li>
+                    </ul>
+                    <div class="related-articles">
+                        <h4>Related Pages:</h4>
+                        <ul>
+                            <li><a href="/sales-leaderboard">Sales Leaderboard Guide</a></li>
+                            <li><a href="/gamification-leaderboard">Gamification Strategies</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 4rem;">Technical & Security</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is my data secure?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we take data security seriously:</p>
+                    <ul>
+                        <li>All data is encrypted in transit and at rest</li>
+                        <li>We use secure HTTPS connections</li>
+                        <li>Regular security audits and updates</li>
+                        <li>GDPR compliant data handling</li>
+                        <li>You can delete your data at any time</li>
+                        <li>No sharing of data with third parties</li>
+                    </ul>
+                    <p>We also offer private leaderboards that require passwords for viewing.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I export my leaderboard data?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! You can export your data at any time:</p>
+                    <ul>
+                        <li><strong>CSV format:</strong> For use in Excel or Google Sheets</li>
+                        <li><strong>JSON format:</strong> For developers and integrations</li>
+                        <li><strong>PDF reports:</strong> For printing or sharing</li>
+                        <li><strong>Image snapshots:</strong> For social media or presentations</li>
+                    </ul>
+                    <p>Premium plans also include scheduled automatic exports and API access for real-time data integration.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Does it work on mobile devices?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! keepTheScore is fully responsive and works perfectly on all devices:</p>
+                    <ul>
+                        <li>Smartphones (iOS and Android)</li>
+                        <li>Tablets and iPads</li>
+                        <li>Desktop computers</li>
+                        <li>Smart TVs and displays</li>
+                    </ul>
+                    <p>The interface automatically adjusts to provide the best viewing experience on each device size. You can also use our TV mode for large display screens.</p>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 4rem;">More Resources</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Where can I find tutorials and guides?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer several resources to help you get the most out of keepTheScore:</p>
+                    <ul>
+                        <li><strong>Video tutorials:</strong> Step-by-step walkthroughs on YouTube</li>
+                        <li><strong>Knowledge base:</strong> Detailed articles and guides</li>
+                        <li><strong>Templates:</strong> Pre-made leaderboards for common use cases</li>
+                        <li><strong>Blog:</strong> Tips, strategies, and success stories</li>
+                        <li><strong>Email support:</strong> Get help from our friendly team</li>
+                    </ul>
+                    <div class="related-articles">
+                        <h4>Popular Guides:</h4>
+                        <ul>
+                            <li><a href="/faq/how-to-create-a-leaderboard-in-google-sheets">How to Create a Leaderboard in Google Sheets</a></li>
+                            <li><a href="/templates">Leaderboard Templates</a></li>
+                            <li><a href="/financial-services-leaderboard">Financial Services Leaderboard Guide</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I contact support?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We're here to help! You can reach our support team through:</p>
+                    <ul>
+                        <li><strong>Email:</strong> helpdesk@leaderboarded.com</li>
+                        <li><strong>Response time:</strong> Usually within 24 hours</li>
+                        <li><strong>Premium support:</strong> Priority response for paid plans</li>
+                    </ul>
+                    <p>Before contacting support, check if your question is answered in this FAQ or our knowledge base.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Create Your Leaderboard?</h2>
+            <p>Join thousands of teams already using keepTheScore to track performance, motivate participants, and celebrate success.</p>
+            <a href="https://keepthescore.com" class="btn btn-keepthescore">
+                Start Free with keepTheScore.com
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Leaderboarded</h3>
+                    <p>Visualize the score. The smart tool to motivate your team, fast!</p>
+                    <a href="https://keepthescore.com" class="btn btn-primary">Try keepTheScore.com</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#industries">Industries</a></li>
+                        <li><a href="/#stats">Stats</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Need Help?</h4>
+                    <ul>
+                        <li><a href="mailto:helpdesk@leaderboarded.com">helpdesk@leaderboarded.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © Leaderboarded Ltd. 2025. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                // Toggle current answer
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for category cards
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const category = card.querySelector('h3').textContent;
+                const section = Array.from(document.querySelectorAll('.faq-section h2')).find(h2 => h2.textContent.includes(category));
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
