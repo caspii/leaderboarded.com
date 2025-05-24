@@ -2,7 +2,7 @@
 layout: default
 title: Gamification Leaderboard - Ultimate Guide to Game Mechanics & Engagement | Leaderboarded
 description: Complete guide to gamification leaderboards. Learn how to implement game mechanics, boost engagement, and drive performance with proven strategies.
-permalink: /gamification-leaderboard/
+permalink: /gamification-leaderboard
 ---
 
 <section class="gamification-hero">

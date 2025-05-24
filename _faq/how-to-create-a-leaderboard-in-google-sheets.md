@@ -2,7 +2,7 @@
 layout: faq
 title: How to Create a Leaderboard in Google Sheets - Step-by-Step Guide
 description: Learn how to create dynamic leaderboards in Google Sheets with automatic sorting, real-time updates, and visual formatting. Complete tutorial with examples.
-permalink: /faq/how-to-create-a-leaderboard-in-google-sheets/
+permalink: /faq/how-to-create-a-leaderboard-in-google-sheets
 ---
 
 <div class="container">

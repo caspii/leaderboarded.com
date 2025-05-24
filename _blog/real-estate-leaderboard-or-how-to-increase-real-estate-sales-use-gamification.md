@@ -2,7 +2,7 @@
 layout: post
 title: Real Estate Leaderboard - Boost Sales with Gamification
 description: Real estate leaderboards that boost agent performance and increase sales. Transform your brokerage with gamification and real-time tracking.
-permalink: /blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification/
+permalink: /blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification
 ---
 
 <section class="re-hero">

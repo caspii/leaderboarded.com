@@ -2,7 +2,7 @@
 layout: default
 title: Financial Services Leaderboard - Banking, Insurance & Trading | Leaderboarded
 description: Financial services leaderboards for banks, insurance, wealth management, and trading firms. Drive performance with gamification and real-time tracking.
-permalink: /financial-services-leaderboard/
+permalink: /financial-services-leaderboard
 ---
 
 <section class="hero" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 5rem 0; text-align: center;">

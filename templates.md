@@ -2,7 +2,7 @@
 layout: default
 title: Leaderboard Templates - Ready-to-Use Designs | Leaderboarded
 description: Free leaderboard templates for sports, sales, education, gaming, and more. Customize and launch your leaderboard in minutes with keepTheScore.com.
-permalink: /templates/
+permalink: /templates
 ---
 
 <link rel="stylesheet" href="{{ '/templates.css' | relative_url }}">

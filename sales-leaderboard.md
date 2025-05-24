@@ -2,7 +2,7 @@
 layout: default
 title: Sales Leaderboard - Drive Performance & Boost Revenue | Leaderboarded
 description: Sales leaderboards that drive performance. Learn how to implement effective sales tracking, motivate teams, and increase revenue with proven strategies.
-permalink: /sales-leaderboard/
+permalink: /sales-leaderboard
 custom_css: |
     /* Sales page specific styles */
     /* Button overrides for hero section */

@@ -2,7 +2,7 @@
 layout: faq
 title: How to Add Player Images to Your Leaderboard - Leaderboarded FAQ
 description: Step-by-step guide on how to add player images and profile pictures to your leaderboard. Learn about image URLs, hosting options, and best practices.
-permalink: /faq/how-to-add-leaderboard-player-image-url/
+permalink: /faq/how-to-add-leaderboard-player-image-url
 ---
 
 <div class="container">
