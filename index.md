@@ -205,13 +205,40 @@ custom_css: |
     <div class="container">
         <h2>Ready to Motivate Your Team?</h2>
         <p>Transform your data into engaging leaderboards and watch your team excel like never before.</p>
-        <a href="{{ site.company.keepthescore_url }}" class="btn btn-keepthescore">
+        <a href="{{ site.company.keepthescore_url }}?utm_source=leaderboarded&utm_medium=website&utm_campaign=homepage&utm_content=bottom_cta" class="btn btn-keepthescore">
             Get Started with keepTheScore.com
             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
         </a>
+    </div>
+</section>
+
+<section class="home-resources">
+    <div class="container">
+        <div class="section-title">
+            <h2>Helpful Resources</h2>
+            <p>Learn how to create and customize your perfect leaderboard</p>
+        </div>
+        <div class="resources-grid-home">
+            <a href="{{ site.company.keepthescore_url }}/docs/quick-start/?utm_source=leaderboarded&utm_medium=website&utm_campaign=homepage&utm_content=quickstart" class="resource-card-home">
+                <h3>Quick Start Guide</h3>
+                <p>Get your first leaderboard running in minutes</p>
+            </a>
+            <a href="{{ site.company.keepthescore_url }}/docs/leaderboard-customization/?utm_source=leaderboarded&utm_medium=website&utm_campaign=homepage&utm_content=customization" class="resource-card-home">
+                <h3>Customization Options</h3>
+                <p>Match your brand with colors, logos, and themes</p>
+            </a>
+            <a href="{{ site.company.keepthescore_url }}/docs/tv-leaderboards/?utm_source=leaderboarded&utm_medium=website&utm_campaign=homepage&utm_content=tv_display" class="resource-card-home">
+                <h3>Display on TVs</h3>
+                <p>Show leaderboards on office screens and monitors</p>
+            </a>
+            <a href="{{ site.company.keepthescore_url }}/docs/api/?utm_source=leaderboarded&utm_medium=website&utm_campaign=homepage&utm_content=api" class="resource-card-home">
+                <h3>API Integration</h3>
+                <p>Connect with your existing tools and workflows</p>
+            </a>
+        </div>
     </div>
 </section>
 
