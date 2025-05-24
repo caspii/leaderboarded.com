@@ -84,7 +84,6 @@ custom_css: |
         <p>Transform your sales team's performance with real-time leaderboards. Increase motivation, track KPIs, and celebrate wins with the most powerful sales gamification platform.</p>
         <div class="sales-hero-cta">
             <a href="{{ site.company.keepthescore_url }}?utm_source=leaderboarded&utm_medium=website&utm_campaign=sales&utm_content=hero_cta" class="btn btn-primary">Start Free Trial</a>
-            <a href="#features" class="btn btn-secondary">See How It Works</a>
         </div>
     </div>
 </section>

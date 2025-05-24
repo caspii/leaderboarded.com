@@ -1304,3 +1304,197 @@ footer {
 .quick-links a:hover {
     text-decoration: underline;
 }
+
+/* ==========================================================================
+   FAQ Article Styles
+   ========================================================================== */
+
+/* Breadcrumb */
+.breadcrumb {
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--gray-dark);
+}
+
+.breadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 0.5rem;
+}
+
+/* Article Hero */
+.article-hero {
+    background-color: var(--light);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.article-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.article-meta {
+    color: var(--gray-dark);
+    font-size: 0.9rem;
+}
+
+/* Article Content */
+.article-content {
+    padding: 3rem 0;
+}
+
+.article-body {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-body h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
+
+.article-body h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.article-body .lead {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.article-body ul,
+.article-body ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.article-body li {
+    margin-bottom: 0.5rem;
+}
+
+/* Code Blocks */
+.code-block {
+    display: block;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-family: monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+/* Data Table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: var(--light);
+    font-weight: 600;
+}
+
+/* Comparison Table */
+.comparison-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+}
+
+.comparison-table th {
+    background-color: var(--primary);
+    color: white;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: var(--light);
+}
+
+/* CTA Box */
+.cta-box {
+    background-color: var(--light);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.cta-box h3 {
+    margin-bottom: 1rem;
+}
+
+.cta-box p {
+    margin-bottom: 1.5rem;
+}
+
+/* Related Articles */
+.related-articles {
+    background-color: var(--light);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 3rem;
+}
+
+.related-articles h3 {
+    margin-bottom: 1rem;
+}
+
+.related-articles ul {
+    list-style: none;
+    padding: 0;
+}
+
+.related-articles li {
+    margin-bottom: 0.5rem;
+}
+
+.related-articles a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.related-articles a:hover {
+    text-decoration: underline;
+}
