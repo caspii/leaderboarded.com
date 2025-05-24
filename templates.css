@@ -1,0 +1,237 @@
+/* Templates Page Specific Styles */
+.page-hero {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #F3F8FF 0%, #E6F0FF 100%);
+    text-align: center;
+}
+
+.page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.page-hero p {
+    font-size: 1.25rem;
+    color: var(--gray-dark);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.template-filters {
+    padding: 3rem 0 2rem;
+    background-color: white;
+    border-bottom: 1px solid var(--gray);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.5rem;
+    border: 2px solid var(--gray);
+    background-color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--gray-dark);
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.filter-btn.active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.templates-section {
+    padding: 4rem 0;
+}
+
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.template-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.template-preview {
+    height: 250px;
+    background-color: var(--light);
+    position: relative;
+    overflow: hidden;
+}
+
+.template-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.template-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--secondary);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.template-info {
+    padding: 2rem;
+}
+
+.template-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.template-category {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.template-description {
+    color: var(--gray-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.template-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.template-features li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    color: var(--gray-dark);
+    font-size: 0.9rem;
+}
+
+.template-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #22C55E;
+    font-weight: bold;
+}
+
+.template-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.template-actions .btn {
+    flex: 1;
+}
+
+.popular-tag {
+    background-color: #FFE4E1;
+    color: var(--secondary);
+}
+
+.new-tag {
+    background-color: #E8F5E9;
+    color: #22C55E;
+}
+
+.preview-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--gray-dark);
+}
+
+.close-modal:hover {
+    color: var(--dark);
+}
+
+/* Template-specific preview styles */
+.sales-preview {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.sports-preview {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.education-preview {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gaming-preview {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.fitness-preview {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.fundraising-preview {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+@media (max-width: 768px) {
+    .page-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .templates-grid {
+        grid-template-columns: 1fr;
+    }
+}

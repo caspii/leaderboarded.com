@@ -1,0 +1,63 @@
+# Jekyll Configuration for Leaderboarded.com
+# Site settings
+title: Leaderboarded - The Online Leaderboard Maker
+description: Create customizable leaderboards to visualize team performance in real-time. No technical skills required.
+url: "https://leaderboarded.com"
+baseurl: ""
+
+# Analytics
+google_analytics: # Add if needed
+fathom_site_id: ATRSWXIE
+ahrefs_key: RyzXASSb75GCqb8uvFdDQQ
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - CNAME
+
+# Collections
+collections:
+  blog:
+    output: true
+    permalink: /blog/:name
+  faq:
+    output: true
+    permalink: /faq/:name
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "blog"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "faq"
+    values:
+      layout: "faq"
+
+# Company info (for easy updates)
+company:
+  name: Leaderboarded Ltd.
+  tagline: "Visualize the score. The smart tool to motivate your team, fast!"
+  year: 2025
+  keepthescore_url: "https://keepthescore.com"

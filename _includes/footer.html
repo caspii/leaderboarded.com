@@ -1,0 +1,46 @@
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>{{ site.company.name | replace: " Ltd.", "" }}</h3>
+                <p>{{ site.company.tagline }}</p>
+                <a href="{{ site.company.keepthescore_url }}?utm_source=leaderboarded&utm_medium=website&utm_campaign={{ page.url | slugify }}&utm_content=footer_cta" class="btn btn-primary">Try keepTheScore.com</a>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ '/#features' | relative_url }}">Features</a></li>
+                    <li><a href="{{ '/#industries' | relative_url }}">Industries</a></li>
+                    <li><a href="{{ '/templates' | relative_url }}">Templates</a></li>
+                    <li><a href="{{ '/#stats' | relative_url }}">Stats</a></li>
+                    <li><a href="{{ '/faq' | relative_url }}">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Use Cases</h4>
+                <ul>
+                    <li><a href="{{ '/sales-leaderboard' | relative_url }}">Sales Teams</a></li>
+                    <li><a href="{{ '/financial-services-leaderboard' | relative_url }}">Financial Services</a></li>
+                    <li><a href="{{ '/gamification-leaderboard' | relative_url }}">Gamification</a></li>
+                    <li><a href="{{ '/blog/real-estate-leaderboard-or-how-to-increase-real-estate-sales-use-gamification' | relative_url }}">Real Estate</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="{{ '/faq/how-to-create-a-leaderboard-in-google-sheets' | relative_url }}">Google Sheets Guide</a></li>
+                    <li><a href="{{ '/faq/how-to-add-leaderboard-player-image-url' | relative_url }}">Add Player Images</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                © {{ site.company.name }} {{ site.company.year }}. All rights reserved.
+            </div>
+            <div class="legal-links">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
